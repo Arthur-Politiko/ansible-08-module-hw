@@ -1,0 +1,19 @@
+---
+- name: Test module with payload
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Call custom module
+      my_own_module:
+        # name: "{{ lookup('env', 'ANSIBLE_MODULE_ARGS.name') }}"
+        # state: "{{ lookup('env', 'ANSIBLE_MODULE_ARGS.state') }}"
+        # name: "example.txt"
+        # state: "touch"
+        path: "/dev/null"
+        # content: "This is a test file."
+      register: result
+
+    - name: Show result
+      debug:
+        var: result
+      
