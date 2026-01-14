@@ -1,0 +1,6 @@
+#SPDX-License-Identifier: MIT-0
+---
+# defaults file for my_module_role
+file_content: "This is a default file created by my_module_role.\n"
+file_path: "/tmp/default_file.txt"
+

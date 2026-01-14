@@ -1,0 +1,9 @@
+---
+- name: Use my_module_role with custom variables
+  hosts: localhost
+  gather_facts: false
+  vars:
+    file_path: "/tmp/custom_file.txt"
+    file_content: "This is a custom file created by my_module_role.\n"
+  roles:
+    - my_own_namespace.yandex_cloud_elk.my_module_role

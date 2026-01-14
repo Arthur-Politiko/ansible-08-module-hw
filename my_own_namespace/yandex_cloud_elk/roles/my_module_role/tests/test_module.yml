@@ -1,0 +1,9 @@
+---
+- name: Test my_own_module
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Create a test file
+      my_own_namespace.yandex_cloud_elk.my_test:
+        path: "/tmp/testfile.txt"
+        content: "This is a test file created by my_own_module.\n"
