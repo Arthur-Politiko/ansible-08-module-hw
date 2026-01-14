@@ -205,3 +205,50 @@ if __name__ == '__main__':
 Выполненное домашнее задание пришлите в виде ссылки на .md-файл в вашем репозитории.
 
 ---
+
+
+# Решение
+
+**Шаг 1.** В виртуальном окружении создайте новый `my_own_module.py` файл.
+
+**Шаг 2.** Наполните его содержимым:
+
+**Шаг 3.** Заполнили файл [my_own_module.py](my_own_module.py)
+
+**Шаг 4.** Проверка my_own_module.py на исполняемость локально: `python3 -m my_own_module.py payload.json`.
+
+**Шаг 5.** Создали **single task playbook** и использовали module в нём [site.yml](./ansible/site.yml).
+
+**Шаг 6.** Проверка через playbook на идемпотентность ![answer](./img/an-08-module-06.1.png)
+
+**Шаг 7.** Вышли из виртуального окружения.
+
+**Шаг 8.** И инициировали новую collection: `ansible-galaxy collection init my_own_namespace.yandex_cloud_elk`.
+
+**Шаг 9.** В эту collection перенесли свой **module** в соответствующую директорию новой роли
+
+Инициализация новой роли:
+```bash
+ansible-galaxy role init my_module_role
+```
+**Шаг 10.** Single task playbook преобразовали в [single task role](./my_own_namespace/yandex_cloud_elk/roles/my_module_role/tasks/main.yml) и перенесите в collection. У role должны быть [default](./my_own_namespace/yandex_cloud_elk/roles/my_module_role/vars/main.yml) всех параметров module .
+
+**Шаг 11.** Создайте playbook для использования этой role.
+![answer](./img/an-08-module-11.1.png)
+
+**Шаг 12.** Заполните всю [документацию](./my_own_namespace/yandex_cloud_elk/README.md) по collection, выложите в свой репозиторий, поставьте тег `1.0.0` на этот коммит.
+Ставим тэг `1.0.0` на коммит:
+```bash
+git tag 1.0.0
+```
+
+**Шаг 13.** Создайте .tar.gz этой collection: `ansible-galaxy collection build` в корневой директории collection.
+
+**Шаг 14.** Создайте ещё одну директорию любого наименования, перенесите туда single task playbook и архив c collection.
+
+**Шаг 15.** Установите collection из локального архива: `ansible-galaxy collection install <archivename>.tar.gz`.
+
+**Шаг 16.** Запустите playbook, убедитесь, что он работает.
+
+**Шаг 17.** В ответ необходимо прислать ссылки на collection и tar.gz архив, а также скриншоты выполнения пунктов 4, 6, 15 и 16.
+![answer](./img/an-08-module-11.1.png)

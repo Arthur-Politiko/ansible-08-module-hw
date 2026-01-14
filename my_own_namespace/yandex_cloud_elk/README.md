@@ -8,7 +8,7 @@ This collection contains a custom module and role for creating files with specif
 
 ## Roles
 
-- `my_module_role` - Role that uses the `my_test` module to create files.
+- `my_module_role` - Role that uses the `my_module_role` module to create files.
 
 ## Installation
 
@@ -24,7 +24,7 @@ ansible-galaxy collection install my_own_namespace-yandex_cloud_elk-1.0.0.tar.gz
 
 ```yaml
 - name: Create a file
-  my_own_namespace.yandex_cloud_elk.my_test:
+  my_own_namespace.yandex_cloud_elk.my_module_role:
     path: "/tmp/testfile.txt"
     content: "This is test content.\n"
 ```
