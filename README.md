@@ -213,7 +213,7 @@ if __name__ == '__main__':
 
 **Шаг 2.** Наполните его содержимым:
 
-**Шаг 3.** Заполнили файл [my_own_module.py](my_own_module.py)
+**Шаг 3.** Заполнили файл [my_own_module.py](./ansible/my_own_module.py)
 
 **Шаг 4.** Проверка my_own_module.py на исполняемость локально: `python3 -m my_own_module.py payload.json`.
 
@@ -231,24 +231,23 @@ if __name__ == '__main__':
 ```bash
 ansible-galaxy role init my_module_role
 ```
-**Шаг 10.** Single task playbook преобразовали в [single task role](./my_own_namespace/yandex_cloud_elk/roles/my_module_role/tasks/main.yml) и перенесите в collection. У role должны быть [default](./my_own_namespace/yandex_cloud_elk/roles/my_module_role/vars/main.yml) всех параметров module .
+**Шаг 10.** Single task playbook преобразовали в [single task role](./my_own_namespace/yandex_cloud_elk/roles/my_module_role/tasks/main.yml) и перенесите в collection. У role должны быть [default](./my_own_namespace/yandex_cloud_elk/roles/my_module_role/defaults/main.yml) всех параметров module .
 
-**Шаг 11.** Создайте playbook для использования этой role.
+**Шаг 11.** Создали playbook для использования этой role.
 ![answer](./img/an-08-module-11.1.png)
 
-**Шаг 12.** Заполните всю [документацию](./my_own_namespace/yandex_cloud_elk/README.md) по collection, выложите в свой репозиторий, поставьте тег `1.0.0` на этот коммит.
+**Шаг 12.** Заполнили всю [документацию](./my_own_namespace/yandex_cloud_elk/README.md) по collection и выложили в свой репозиторий
 Ставим тэг `1.0.0` на коммит:
 ```bash
 git tag 1.0.0
 ```
 
-**Шаг 13.** Создайте .tar.gz этой collection: `ansible-galaxy collection build` в корневой директории collection.
+**Шаг 13.** Создали .tar.gz этой collection: `ansible-galaxy collection build` в корневой директории collection.
 
-**Шаг 14.** Создайте ещё одну директорию любого наименования, перенесите туда single task playbook и архив c collection.
+**Шаг 14.** Создали каталог `test_collection`, перенесли туда single task playbook и архив c collection.
 
-**Шаг 15.** Установите collection из локального архива: `ansible-galaxy collection install <archivename>.tar.gz`.
+**Шаг 15.** Установили collection из локального архива: `ansible-galaxy collection install my_own_namespace-yandex_cloud_elk-1.0.0.tar.gz`.
 
-**Шаг 16.** Запустите playbook, убедитесь, что он работает.
+**Шаг 16.** Запустили playbook, убедимся, что он работает. ![answer](./img/an-08-module-11.1.png)
 
 **Шаг 17.** В ответ необходимо прислать ссылки на collection и tar.gz архив, а также скриншоты выполнения пунктов 4, 6, 15 и 16.
-![answer](./img/an-08-module-11.1.png)

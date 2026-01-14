@@ -10,6 +10,10 @@ tmp/
 .tox/
 .venv/
 ansible/*
+!ansible/
+!ansible/payload.json
+!ansible/site.yml
+!ansible/my_own_module.py
 roles/clickhouse
 roles/lighthouse
 requirements-dev.txt
